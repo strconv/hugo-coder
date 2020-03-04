@@ -1,16 +1,22 @@
 <footer class="footer">
   <section class="container">
     {{ with .Site.Params.footercontent | safeHTML }}
-      <p>{{.}}</p>
+      <p style="font-size:1.6rem;">{{.}}</p>
     {{ end }}
-    {{ if not .Site.Params.hideCopyright }} © {{ now.Format "2006" }}{{ end }}
-    {{ if not .Site.Params.hideCredits }}
-      {{ if not .Site.Params.hideCopyright }} · {{ end }}
-      {{ i18n "powered_by" }} <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    {{ end }}
-    {{ if .Site.Params.commit }}
+    log.<span style="color:#4078F2">Errorf</span>(
+        <span style="color:#2AA198">"
+          {{ if not .Site.Params.hideCopyright }} ©{{ now.Format "2006" }}{{ end }}
+          {{ if not .Site.Params.hideCredits }}
+            {{ if not .Site.Params.hideCopyright }}·{{ end }}
+            {{ i18n "powered_by" }} %s. Theme based on %s|errors: %s
+          {{ end }}
+        "</span>
+
+    , <a href="https://gohugo.io/">Hugo</a>, <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>, <a href="https://godoc.org/errors">err</a>)
+    <br><span style="color:#4078F2">go</span> fmt.<span style="color:#4078F2">Println</span>(<a href="http://www.beian.miit.gov.cn/" rel="nofollow">鄂ICP备18010884号-1</a>)
+<!--     {{ if .Site.Params.commit }}
       {{ if or (not .Site.Params.hideCredits) (not .Site.Params.hideCopyright) }} · {{ end }}
       [<a href="{{ .Site.Params.commit }}{{ getenv "GIT_COMMIT_SHA" }}">{{ getenv "GIT_COMMIT_SHA_SHORT" }}</a>]
-    {{ end }}
+    {{ end }} -->
   </section>
 </footer>

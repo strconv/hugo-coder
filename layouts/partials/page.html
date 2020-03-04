@@ -5,5 +5,9 @@
     </header>
 
     {{ .Content }}
+
   </article>
+  </br>分享：<div class="social-share" data-sites="wechat,qq,weibo,twitter,facebook" data-mobile-sites="wechat,weibo"></div>
+  </br>
+  {{ partial "comments.html" . }}
 </section>

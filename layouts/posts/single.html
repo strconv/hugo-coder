@@ -25,7 +25,12 @@
           {{ with .Page.Params.Tags }}{{ partial "taxonomy/tags.html" . }}{{ end }}
         </div>
       </header>
-
+      {{ if not .Params.notoc }}
+          <div id="toc" style="float:right;">
+            目录：
+            {{ .TableOfContents }}
+          </div>
+      {{ end }}
       <div>
         {{ .Content }}
       </div>

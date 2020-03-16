@@ -4,9 +4,6 @@
 {{ define "content" }}
   <section class="container post">
     <article>
-      <div class="ctrolPanel" id="gotop" style="width:50px;height:50px;position:fixed;right:25px;top:85%;overflow:hidden;z-index:10000;">
-        <a href="#"><img title="返回顶部" src="http://img.ariser.cn/blog/top21.png" /></a>
-      </div>
       <header>
         <div class="post-title">
           <h1 class="title">{{ .Title }}</h1>
@@ -37,7 +34,7 @@
       <div>
         {{ .Content }}
       </div>
-
+      {{ partial "to_top.html" . }}
       <footer>
         {{ partial "posts/series.html" . }}
         {{ partial "posts/disqus.html" . }}
